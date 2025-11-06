@@ -1,0 +1,37 @@
+name: Publish static site to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site folder
+        run: |
+          # ensure public exists and has .nojekyll to avoid Jekyll processing
+          if [ -d "public" ]; then
+            touch public/.nojekyll
+          else
+            echo "public folder missing" && exit 1
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: public
+
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
