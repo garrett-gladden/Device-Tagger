@@ -1,0 +1,17 @@
+{
+  "name": "Device Tagger",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "msjsdiag.vscode-react-native"
+  ],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}

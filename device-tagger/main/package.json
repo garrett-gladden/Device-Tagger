@@ -1,0 +1,22 @@
+{
+  "name": "device-tagger",
+  "version": "1.0.0",
+  "description": "A React application for tracking device performance metrics.",
+  "main": "src/index.jsx",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "vite": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
